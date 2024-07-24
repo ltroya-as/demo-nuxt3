@@ -1,0 +1,14 @@
+query getLatestAnnouncement {
+  announcements(first: 1) {
+    nodes {
+      title
+      slug
+      excerpt
+      content
+      announcements {
+        author
+      }
+      date
+    }
+  }
+}
