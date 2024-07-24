@@ -186,11 +186,11 @@ export default {
 
   async mounted() {
     try {
-      const { data } = await this.$bmAuth.getPublicGraphqlClient().query({
-        query: latestAnnouncement,
-      })
-
-      this.handleAnnouncementData(data)
+      // const { data } = await this.$bmAuth.getPublicGraphqlClient().query({
+      //   query: latestAnnouncement,
+      // })
+      //
+      // this.handleAnnouncementData(data)
     } catch (error) {
       logError(error)
     } finally {

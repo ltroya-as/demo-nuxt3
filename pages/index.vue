@@ -74,20 +74,20 @@ export default {
     // this.$store.commit('modal/setInitialFields', {})
     try {
       this.loading = true
-      this.articles = await this.fetchArticles()
+      // this.articles = await this.fetchArticles()
 
-      const eventsResponse = await this.$graphqlClient.getEvents()
-
-      const eventsRaw = eventsResponse.data.events.nodes.filter(
-          (event) => event.isFeatured,
-      )
-      const events = processEvents(eventsRaw)
-      const eventsSinceLastYear = getEventsSinceLastYear(events)
-      const upcomingEvents = getUpcomingEvents(eventsSinceLastYear)
-
-      if (upcomingEvents?.length) {
-        this.event = upcomingEvents[0]
-      }
+      // const eventsResponse = await this.$graphqlClient.getEvents()
+      //
+      // const eventsRaw = eventsResponse.data.events.nodes.filter(
+      //     (event) => event.isFeatured,
+      // )
+      // const events = processEvents(eventsRaw)
+      // const eventsSinceLastYear = getEventsSinceLastYear(events)
+      // const upcomingEvents = getUpcomingEvents(eventsSinceLastYear)
+      //
+      // if (upcomingEvents?.length) {
+      //   this.event = upcomingEvents[0]
+      // }
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error(e)
@@ -100,13 +100,14 @@ export default {
 
   methods: {
     async fetchArticles() {
-      const ITEMS_ARTICLES = 3
-      const response = await this.$graphqlClient.getMembershipArticles({
-        first: ITEMS_ARTICLES,
-        showOnlyFeaturedPosts: true,
-      })
-
-      return response.data.memberships?.nodes || []
+      // const ITEMS_ARTICLES = 3
+      // const response = await this.$graphqlClient.getMembershipArticles({
+      //   first: ITEMS_ARTICLES,
+      //   showOnlyFeaturedPosts: true,
+      // })
+      //
+      // return response.data.memberships?.nodes || []
+      return [];
     },
   },
 }

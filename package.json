@@ -19,7 +19,8 @@
     "nuxt": "^3.12.3",
     "nuxt-graphql-request": "^8.1.0",
     "nuxt-svgo": "^4.0.2",
-    "vue": "latest"
+    "vue": "latest",
+    "vue-router": "^4.4.0"
   },
   "devDependencies": {
     "sass": "^1.77.8"
