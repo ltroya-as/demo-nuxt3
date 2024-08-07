@@ -1,0 +1,7 @@
+<svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path clip-rule="evenodd"
+        d="M1.766 3.753a2 2 0 0 1 2-2h12.667a2 2 0 0 1 2 2v12.666a2 2 0 0 1-2 2H3.766a2 2 0 0 1-2-2V3.753z"
+        stroke="currentColor" stroke-opacity=".87" stroke-width="1.2" />
+    <path d="M9.15 9.85h3.696v1.43H9.15V9.85zm.132 4.236H7.5v-7.7h5.819v1.43H9.282v6.27z"
+        fill="currentColor" fill-opacity=".6" />
+</svg>

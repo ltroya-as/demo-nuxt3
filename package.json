@@ -19,8 +19,11 @@
     "nuxt": "^3.12.3",
     "nuxt-graphql-request": "^8.1.0",
     "nuxt-svgo": "^4.0.2",
+    "pluralize": "^8.0.0",
+    "simplelightbox": "^2.14.3",
     "vue": "latest",
-    "vue-router": "^4.4.0"
+    "vue-router": "^4.4.0",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "sass": "^1.77.8"

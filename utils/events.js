@@ -39,12 +39,11 @@ const processEvents = (rawEvents) => {
     return { ...e.events, slug: e.slug }
   })
 
-  acfEvents.forEach((event) => formatEvent(event))
-
-  return acfEvents
+  return acfEvents.map((event) => formatEvent(event))
 }
 
 const formatEvent = (event) => {
+  event.eventType = event.eventType?.at(0)
   // Get pathname for url
   const url = event.url
 

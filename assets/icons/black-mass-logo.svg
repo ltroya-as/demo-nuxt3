@@ -1,0 +1,12 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path clip-rule="evenodd" d="M3.333 5.333a2 2 0 0 1 2-2h29.334a2 2 0 0 1 2 2v29.334a2 2 0 0 1-2 2H5.333a2 2 0 0 1-2-2V5.333z" stroke="#000" stroke-opacity=".87" stroke-width="2"/>
+    <path d="m14.667 18 1.835-1.224c.11-.073.212-.156.305-.25l1.274-1.274a2 2 0 0 1 1.414-.585h1.366a2 2 0 0 1 .895.21l1.564.783a2 2 0 0 1 .962 1.046l.733 1.832a2 2 0 0 0 1.114 1.114l1.742.696a2 2 0 0 1 1.114 1.114l.82 2.048a2 2 0 0 0 .607.82l.994.795a.94.94 0 0 1-.588 1.675H10.353a1.825 1.825 0 0 1-1.632-2.64l.206-.412a2 2 0 0 1 .808-.849l.951-.535a2 2 0 0 0 .9-1.063l.387-1.068a2 2 0 0 1 .792-1L14.667 18z" stroke="#000" stroke-opacity=".87" stroke-width="2"/>
+    <circle cx="16.1" cy="19.9" r=".3" fill="#000" fill-opacity=".87"/>
+    <circle cx="13.7" cy="21.1" fill="#000" fill-opacity=".87" r=".3"/>
+    <circle cx="18.5" cy="17.5" r=".3" fill="#000" fill-opacity=".87"/>
+    <circle cx="20.9" cy="16.3" fill="#000" fill-opacity=".87" r=".3"/>
+    <circle cx="20.9" cy="18.7" fill="#000" fill-opacity=".87" r=".3"/>
+    <circle cx="18.5" cy="21.1" fill="#000" fill-opacity=".87" r=".3"/>
+    <circle cx="12.5" cy="23.5" fill="#000" fill-opacity=".87" r=".3"/>
+    <circle cx="14.9" cy="22.3" fill="#000" fill-opacity=".87" r=".3"/>
+</svg>
