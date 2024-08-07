@@ -19,6 +19,8 @@
     "@vee-validate/i18n": "^4.13.2",
     "@vee-validate/rules": "^4.13.2",
     "@vimeo/player": "^2.23.0",
+    "ag-grid-community": "^32.0.2",
+    "ag-grid-vue3": "^32.0.2",
     "autoprefixer": "^10.4.20",
     "axios": "^1.7.3",
     "bowser": "^2.11.0",
