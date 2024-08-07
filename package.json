@@ -42,6 +42,7 @@
     "jwt-decode": "^4.0.0",
     "lodash": "^4.17.21",
     "luxon": "^3.5.0",
+    "mapbox-gl": "^3.5.2",
     "modern-screenshot": "^4.4.39",
     "nuxt": "^3.12.3",
     "nuxt-graphql-request": "^8.1.0",
