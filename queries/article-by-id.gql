@@ -1,0 +1,46 @@
+query getArticleForPreview($postId: ID!, $contentType: ContentTypeEnum) {
+  article: contentNode(
+    id: $postId
+    idType: DATABASE_ID
+    contentType: $contentType
+  ) {
+    id
+    slug
+    status
+    date
+    ... on Membership {
+      title
+      content
+      featuredImage {
+        node {
+          srcSet
+          mediaItemUrl
+        }
+      }
+      categories {
+        nodes {
+          name
+          slug
+          id
+        }
+      }
+    }
+    ... on LithiumAnalysis {
+      title
+      content
+      featuredImage {
+        node {
+          srcSet
+          mediaItemUrl
+        }
+      }
+      categories: lithiumCategories {
+        nodes {
+          name
+          slug
+          id
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+query getDownloadFormDetail($slug: String!) {
+  downloadFormBy(slug: $slug) {
+    title
+    fields: download_forms {
+      emailSubject
+      downloadInstructions
+    }
+  }
+}

@@ -8,7 +8,7 @@
 
     <TheFooter />
 
-<!--    <ContactModal v-show="$store.state.modal.contactOpen" />-->
+    <ContactModal v-show="$store.state.modal.contactOpen" />
 
     <CommonToast
       :show="toast.show"
@@ -25,13 +25,11 @@
 <script>
 import TheHeader from '~/components/TheHeader.vue'
 import TheFooter from '~/components/TheFooter.vue'
-import CommonToast from '~/components/common/Toast.vue'
 
 export default {
   components: {
     TheHeader,
     TheFooter,
-    CommonToast,
   },
   computed: {
     toast() {

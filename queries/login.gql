@@ -1,0 +1,29 @@
+mutation LoginUser(
+  $clientMutationId: String!
+  $username: String!
+  $password: String!
+) {
+  login(
+    input: {
+      clientMutationId: $clientMutationId
+      username: $username
+      password: $password
+    }
+  ) {
+    authToken
+    refreshToken
+    user {
+      id
+      name
+      email
+      firstName
+      lastName
+      roles {
+        nodes {
+          name
+          id
+        }
+      }
+    }
+  }
+}

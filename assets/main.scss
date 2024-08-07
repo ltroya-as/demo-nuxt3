@@ -1,0 +1,403 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 4px;
+  @apply bg-s-400;
+}
+
+::-webkit-scrollbar-track:active {
+  @apply bg-p-50;
+}
+
+body::-webkit-scrollbar-track {
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  @apply bg-s-700;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-s-600;
+}
+
+::-webkit-scrollbar-thumb:active {
+  @apply bg-p-400;
+}
+
+.break-inside {
+  break-inside: avoid;
+}
+
+.content-container {
+  @apply max-w-content-container;
+}
+
+.small-caps {
+  font-variant-caps: small-caps;
+}
+
+.focus\:shadow-none:focus {
+  box-shadow: none;
+}
+
+.polygons-background {
+  background-image: url('~/assets/vector-illustrations/backgrund-polygons.svg');
+  background-repeat: no-repeat;
+  background-origin: initial;
+  background-position: left -2rem;
+  background-size: 60% auto;
+}
+
+@media (max-width: 768px) {
+  .polygons-background {
+    background-size: 100% auto;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .polygons-background {
+    background-size: 75% auto;
+  }
+}
+
+@media (max-width: 1023px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.events-dark-blue-form,
+.events-dark-red-form {
+  @apply text-xs lg:text-lg;
+  .empty-field-label {
+    @apply translate-y-5 #{!important};
+  }
+
+  @media (min-width: 1024px) {
+    .empty-field-label {
+      @apply translate-y-1/2 #{!important};
+    }
+  }
+
+  select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+  }
+}
+
+.events-dark-blue-form {
+  .non-empty-field-label {
+    --bg-color: transparent !important;
+    @apply -top-1 ml-0 text-white #{!important};
+  }
+
+  .empty-field-label {
+    --bg-color: #6966df !important;
+    @apply text-white;
+  }
+
+  .input {
+    --bg-color: #6966df !important;
+    @apply rounded-none;
+  }
+
+  label > span {
+    color: white;
+  }
+
+  .text-error {
+    @apply text-[#ff0a36];
+  }
+
+  input:-webkit-autofill {
+    -webkit-text-fill-color: white !important;
+  }
+}
+
+.events-dark-red-form {
+  .non-empty-field-label {
+    --bg-color: transparent !important;
+    @apply -top-1 ml-0 text-white #{!important};
+  }
+
+  .empty-field-label {
+    --bg-color: #7d020d !important;
+    @apply text-white;
+  }
+
+  .input {
+    --bg-color: #7d020d !important;
+    @apply rounded-none text-white;
+  }
+
+  .text-error {
+    @apply text-[#ff0a36];
+  }
+
+  input:-webkit-autofill {
+    -webkit-text-fill-color: white !important;
+  }
+}
+
+.pa-chart-filter-shadow {
+  filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.14))
+    drop-shadow(0px 2px 1px rgba(0, 0, 0, 0.12))
+    drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.2));
+}
+
+.article-content {
+  figure {
+    width: 100% !important;
+  }
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+.button-progress-bar {
+  @apply bg-p-500 absolute bottom-[-2px] z-40 block h-1 rounded-bl rounded-br;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.container-app,
+.has-lightbox {
+  overflow: hidden;
+  @media only screen and (min-width: 1024px) {
+    .scroll-custom {
+      padding-right: 8px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .container-modal-common {
+    ::-webkit-scrollbar {
+      width: unset;
+      height: unset;
+    }
+
+    ::-webkit-scrollbar-track {
+      border-radius: unset;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: unset;
+    }
+  }
+}
+
+/*-------------------------------------
+  CARDS
+-------------------------------------*/
+.card-hover {
+  @media (min-width: 1024px) {
+    @apply cursor-pointer transition-shadow duration-500;
+
+    &:hover {
+      @apply shadow-card-hover scale-[1.008] hover:z-10;
+    }
+  }
+}
+
+.card-hover-md {
+  @extend .card-hover;
+
+  &:hover {
+    @apply scale-[1.006];
+  }
+}
+
+.card-hover-lg {
+  @extend .card-hover;
+
+  &:hover {
+    @apply scale-[1.0025];
+  }
+}
+
+/*-------------------------------------
+  tooltips
+-------------------------------------*/
+
+#chartjs-tooltip {
+  opacity: 1;
+  position: absolute;
+  background: #2c2c2c;
+  color: white;
+  transition: all 0.1s ease;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+  z-index: 10;
+  border-radius: 4px;
+  max-width: 200px;
+  width: max-content;
+  max-height: 350px;
+}
+
+#chartjs-tooltip::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: #fede80;
+}
+
+#chartjs-tooltip::-webkit-scrollbar-track {
+  background: #525252;
+}
+
+#chartjs-tooltip::-webkit-scrollbar-thumb:hover {
+  background: #fede80;
+}
+#chartjs-tooltip::-webkit-scrollbar-thumb:active {
+  background: #fede80;
+}
+
+@media (min-width: 350px) {
+  #chartjs-tooltip {
+    max-width: 250px;
+  }
+}
+
+@media (min-width: 450px) {
+  #chartjs-tooltip {
+    max-width: 280px;
+  }
+}
+
+@media (min-width: 768px) {
+  #chartjs-tooltip {
+    max-width: 500px;
+  }
+}
+
+.chartjs-tooltip-key {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+}
+
+/**
+  * Ag-Grid custom styles
+ */
+.ag-grid-pa-portal {
+  .ag-theme-alpine {
+    --ag-borders: none;
+    --ag-borders-critical: none;
+    --ag-cell-horizontal-border: none;
+    --ag-font-family: 'Montserrat', 'sans-serif';
+    --ag-background-color: #f2f3f9;
+    --ag-header-background-color: #fff;
+    --ag-odd-row-background-color: #fff;
+    --ag-font-size: 12px;
+
+    --custom-border-color: #a4a5aa;
+
+    /* BORDERS */
+    .ag-pinned-left-cols-container,
+    .ag-row {
+      border: none;
+    }
+    .ag-center-cols-container > div > div {
+      border-left: solid 1px var(--custom-border-color);
+    }
+    .ag-body {
+      border-top: solid 1px var(--custom-border-color);
+    }
+    .ag-pinned-left-cols-container > div {
+      border-bottom: solid 1px var(--custom-border-color);
+    }
+    .ag-center-cols-container > div {
+      border-bottom: solid 1px var(--custom-border-color);
+    }
+
+    .ag-cell {
+      padding: 0 10px !important;
+
+      &.blocked {
+        padding: 0 !important;
+      }
+    }
+
+    .ag-pinned-left-header .ag-header-cell-label {
+      justify-content: space-between;
+    }
+
+    .ag-header-cell-comp-wrapper {
+      margin-top: 0;
+    }
+
+    .right-text .ag-header-cell-label {
+      justify-content: flex-end;
+      text-align: right;
+    }
+
+    .ag-header-cell-label {
+      align-items: center;
+      font-weight: bold;
+    }
+
+    .without-overflow .ag-header-cell-text {
+      max-width: 120px;
+      line-height: normal;
+      text-overflow: clip;
+      overflow: visible;
+      white-space: normal;
+    }
+
+    .market-cap-header .ag-header-cell-text {
+      max-width: 90px !important;
+    }
+
+    .ag-pinned-left-cols-container {
+      font-weight: 600;
+    }
+  }
+
+  .ag-theme-alpine.normal {
+    height: 100vh;
+    max-height: 395px;
+  }
+
+  .ag-root-wrapper {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+
+  .ag-header {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+
+  .ag-pinned-left-cols-container {
+    border-right: #f0f1f7 solid 1px;
+  }
+
+  .ag-theme-alpine .ag-pinned-left-cols-container,
+  .custom-group,
+  .ag-header {
+    position: relative;
+    z-index: 1;
+  }
+
+  .ag-theme-alpine.ag-row-group {
+    z-index: 20;
+  }
+}

@@ -1,5 +1,6 @@
 <template>
   <div
+    data-testid="capex-tracker"
     class="bg-s-900 absolute flex h-full w-full min-w-full origin-left cursor-pointer select-none items-center justify-between overflow-hidden transition-all duration-700 ease-in-out"
     :class="classesContainerActive"
     @click="$modal.open('capexTracker')"
@@ -10,7 +11,7 @@
         :src="imageUrl"
         alt="capex tracker background"
         class="image min-h-full w-full object-cover lg:h-full"
-        data-testid="image-slice"
+        data-testid="capex-image"
       />
     </div>
     <div
@@ -24,7 +25,7 @@
 
         <h2
           class="line-clamp-2 font-bold md:mb-3 md:text-xl md:leading-6"
-          data-testid="title-slice"
+          data-testid="capex-title"
         >
           Capital Tracker: {{ material }}
         </h2>
@@ -35,7 +36,7 @@
       <CommonButton
         variant="clean"
         class="!w-fit text-sm"
-        data-testid="read-more"
+        data-testid="capex-button"
       >
         View Now
       </CommonButton>

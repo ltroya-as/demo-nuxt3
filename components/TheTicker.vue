@@ -1,28 +1,80 @@
 <template>
   <div class="bg-s-900 relative text-xs text-white">
     <div
-        class="max-w-content-container relative mx-auto flex h-9 items-center justify-between gap-2 px-5 py-2"
+      class="max-w-content-container relative mx-auto flex h-9 items-center justify-between gap-2 px-5 py-2"
     >
       <!-- Left -->
       <div
-          class="relative flex h-5 min-w-0 grow transition-opacity"
-          :class="loading ? 'opacity-0' : 'opacity-100'"
+        class="relative flex h-5 min-w-0 grow transition-opacity"
+        :class="loading ? 'opacity-0' : 'opacity-100'"
       >
         <button
-            class="flex w-5 items-center justify-center"
-            @click="moveToRight"
+          class="flex w-5 items-center justify-center"
+          @click="moveToRight"
         >
-          <IconLeftAngle/>
+          <IconLeftAngle />
+        </button>
+        <div
+          id="ticker-container"
+          class="relative flex grow overflow-hidden scroll-smooth pr-16 font-semibold"
+          @mouseover="pauseWithHover"
+          @mouseleave="debounceResumeAnimation.debounce(resumeAnimation, 1000)"
+        >
+          <div
+            class="indexes-container absolute flex h-5 items-center gap-8 pr-8"
+          >
+            <TickerIndex
+              v-for="index in indexes"
+              :key="index.name"
+              identifier="0"
+              :name="index.name"
+              :percentage-change="index.values.percentageChange"
+              :today="index.values.today"
+              :has-access="index.values.hasAccess"
+              :url="index.values.url"
+              :membership="index.values.subscription || ''"
+              :pause-animation="pauseAnimation"
+              :resume-animation="resumeAnimation"
+              :debounce-resume-animation="debounceResumeAnimation"
+              @mounted="isFirstIndexesContainerMounted = true"
+            />
+          </div>
+          <div
+            class="indexes-container absolute flex h-5 items-center gap-8 pr-8"
+          >
+            <TickerIndex
+              v-for="index in indexes"
+              :key="index.name"
+              identifier="1"
+              :name="index.name"
+              :percentage-change="index.values.percentageChange"
+              :today="index.values.today"
+              :has-access="index.values.hasAccess"
+              :url="index.values.url"
+              :membership="index.values.subscription || ''"
+              :pause-animation="pauseAnimation"
+              :resume-animation="resumeAnimation"
+              :debounce-resume-animation="debounceResumeAnimation"
+              @mounted="isSecondIndexesContainerMounted = true"
+            />
+          </div>
+        </div>
+
+        <button
+          class="flex w-5 items-center justify-center"
+          @click="moveToLeft"
+        >
+          <IconRightAngle />
         </button>
       </div>
 
       <!-- Right -->
       <div class="my-px ml-8 flex min-w-[300px] items-center lg:ml-14">
         <NuxtLink
-            to="/lithium-ion-battery-raw-material-index"
-            class="flex items-center gap-2"
+          to="/lithium-ion-battery-raw-material-index"
+          class="flex items-center gap-2"
         >
-          <IconCurves class="h-3 w-3 xl:h-4 xl:w-4"/>
+          <IconCurves class="h-3 w-3 xl:h-4 xl:w-4" />
           <span class="text-sm"> Lithium ion Battery Raw Material Index </span>
         </NuxtLink>
       </div>
@@ -38,12 +90,14 @@ import IconLeftAngle from '@/assets/icons/angle-left.svg'
 import IconRightAngle from '@/assets/icons/RightAngle.svg'
 import IconCurves from '@/assets/icons/Curves.svg'
 import AuthenticationMixin from '~/mixins/AuthenticationMixin'
+import TickerIndex from '~/components/TickerIndex.vue'
 
 export default {
   components: {
     IconLeftAngle,
     IconRightAngle,
     IconCurves,
+    TickerIndex,
   },
 
   mixins: [AuthenticationMixin],
@@ -68,8 +122,8 @@ export default {
 
     isTickerContainerMounted() {
       return (
-          this.isFirstIndexesContainerMounted &&
-          this.isSecondIndexesContainerMounted
+        this.isFirstIndexesContainerMounted &&
+        this.isSecondIndexesContainerMounted
       )
     },
   },
@@ -91,9 +145,9 @@ export default {
       const SPEED = 0.03
       const INDEXES_CONTAINER_CLASS = '.indexes-container'
       const indexesContainer = document.querySelectorAll(
-          INDEXES_CONTAINER_CLASS,
+        INDEXES_CONTAINER_CLASS,
       )
-      const {scrollWidth} = indexesContainer[0]
+      const { scrollWidth } = indexesContainer[0]
       const totalWidth = scrollWidth
       const duration = Math.abs(scrollWidth * SPEED)
       gsap.set(INDEXES_CONTAINER_CLASS, {
@@ -141,19 +195,19 @@ export default {
         const remainingProgress = this.INTERVAL - currentProgress
 
         gsap
-            .timeline()
-            .to(this.animation, {
-              duration: durationToZero,
-              progress: '0',
-            })
-            .to(this.animation, {
-              duration: 0,
-              progress: '1',
-            })
-            .to(this.animation, {
-              duration: remainingDuration,
-              progress: `${1 - remainingProgress}`,
-            })
+          .timeline()
+          .to(this.animation, {
+            duration: durationToZero,
+            progress: '0',
+          })
+          .to(this.animation, {
+            duration: 0,
+            progress: '1',
+          })
+          .to(this.animation, {
+            duration: remainingDuration,
+            progress: `${1 - remainingProgress}`,
+          })
       } else {
         gsap.to(this.animation, {
           duration: this.INTERVAL_DURATION,
@@ -179,11 +233,10 @@ export default {
     async getTickerIndexes() {
       try {
         this.$store.commit(
-            'indexes/setIndexesStates',
-            await this.$restClient.getTickerIndexes(),
+          'indexes/setIndexesStates',
+          await this.$restClient.getTickerIndexes(),
         )
-      } catch (e) {
-      }
+      } catch (e) {}
 
       this.$nextTick(this.setCanScroll)
     },

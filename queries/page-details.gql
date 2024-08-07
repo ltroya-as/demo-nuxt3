@@ -1,0 +1,19 @@
+query getPageDetail($slug: ID!) {
+  page(id: $slug, idType: URI) {
+    title
+    content
+    seo {
+      twitterTitle
+      twitterDescription
+      twitterImage {
+        mediaItemUrl
+      }
+      opengraphTitle
+      opengraphDescription
+      opengraphType
+      opengraphImage {
+        mediaItemUrl
+      }
+    }
+  }
+}

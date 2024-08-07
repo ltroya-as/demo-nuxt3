@@ -1,0 +1,33 @@
+query getLatestAnnouncement(
+  $dayInitial: Int!
+  $monthInitial: Int!
+  $yearInitial: Int!
+  $dayFinal: Int!
+  $monthFinal: Int!
+  $yearFinal: Int!
+  $after: String
+) {
+  announcements(
+    where: {
+      dateQuery: {
+        after: { day: $dayInitial, month: $monthInitial, year: $yearInitial }
+        before: { day: $dayFinal, month: $monthFinal, year: $yearFinal }
+      }
+      orderby: { field: DATE, order: DESC }
+    }
+    first: 10
+    after: $after
+  ) {
+    pageInfo {
+      total
+      hasNextPage
+      endCursor
+    }
+    nodes {
+      date
+      excerpt
+      slug
+      title
+    }
+  }
+}

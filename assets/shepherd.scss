@@ -1,0 +1,45 @@
+.shepherd-element {
+  @media screen and (min-width: 1024px) {
+    translate: -50px 0;
+    .shepherd-arrow:before {
+      transform: rotate(0deg);
+      height: 8px;
+      width: 60px;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    translate: 0 50px;
+    .shepherd-arrow:before {
+      transform: rotate(0deg);
+      height: 60px;
+      width: 8px;
+    }
+    .shepherd-arrow {
+      top: -50px !important;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    max-width: none;
+    width: calc(100% - 24px);
+  }
+}
+
+.shepherd-content {
+  position: relative;
+  .shepherd-header {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 0;
+
+    .shepherd-cancel-icon {
+      color: #000;
+      line-height: 16px;
+    }
+  }
+  .shepherd-text {
+    padding: 24px;
+  }
+}

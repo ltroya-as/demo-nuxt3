@@ -1,0 +1,25 @@
+query getAnnouncementBySlug($slug: String) {
+  announcementBy(slug: $slug) {
+    title
+    content
+    date
+    featuredImage {
+      node {
+        mediaItemUrl
+      }
+    }
+    seo {
+      twitterTitle
+      twitterDescription
+      twitterImage {
+        mediaItemUrl
+      }
+      opengraphTitle
+      opengraphDescription
+      opengraphType
+      opengraphImage {
+        mediaItemUrl
+      }
+    }
+  }
+}

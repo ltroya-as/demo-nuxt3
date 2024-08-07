@@ -1,75 +1,89 @@
-# Nuxt 3 Minimal Starter
+# Benchmark Frontend
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=allansolutions_benchmark-frontend&metric=sqale_rating&token=5c95e86cbde58d68fee198db31b0c7309f585457)](https://sonarcloud.io/summary/new_code?id=allansolutions_benchmark-frontend)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=allansolutions_benchmark-frontend&metric=security_rating&token=5c95e86cbde58d68fee198db31b0c7309f585457)](https://sonarcloud.io/summary/new_code?id=allansolutions_benchmark-frontend)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=allansolutions_benchmark-frontend&metric=vulnerabilities&token=5c95e86cbde58d68fee198db31b0c7309f585457)](https://sonarcloud.io/summary/new_code?id=allansolutions_benchmark-frontend)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=allansolutions_benchmark-frontend&metric=bugs&token=5c95e86cbde58d68fee198db31b0c7309f585457)](https://sonarcloud.io/summary/new_code?id=allansolutions_benchmark-frontend)
 
-## Setup
+## 📙 Introduction
 
-Make sure to install the dependencies:
+Depending on how we build it, we can have 2 versions of the site: **Preview** and **Production**. The first one is an SPA in which editors can preview content drafts (not visible in production); the latter is the static site that final users will see.
+
+They both share most of the code, with little additional logic for the **Preview** version. In order to enable that extra logic, you need set the env variable `IS_PREVIEW_SITE` to `true` on both development (`yarn dev`) and production environments (`yarn generate`).
+
+## 📙 Development
+
+Clone the repository and install dependencies
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
 yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+Setup your `.env` file with the proper values:
 
 ```bash
-# npm
-npm run dev
+cp .env.example .env
+```
 
-# pnpm
-pnpm run dev
+Start the development server on http://localhost:3000.
 
-# yarn
+```bash
 yarn dev
-
-# bun
-bun run dev
+# or add the "preview" suffix to run enable the Preview Site mode:
+yarn dev:preview
 ```
 
-## Production
+## 📙 Testing
 
-Build the application for production:
+In order to run Playwright tests, you need to have a `.env` file. Ask your team for the proper credentials.
+
+```env
+
+"TESTING_ADMIN__USER": "",
+"TESTING_ADMIN__PASS": "",
+
+"TESTING_RCP_ALL__USER": "",
+"TESTING_RCP_ALL__PASS": "",
+
+"TESTING_ACF_ALL__USER": "",
+"TESTING_ACF_ALL__PASS": "",
+
+"TESTING_NONE__USER": "",
+"TESTING_NONE__PASS": "",
+
+"TESTING_RCP_LITHIUM__USER": "",
+"TESTING_RCP_LITHIUM__PASS": "",
+
+```
+
+### Test with Playwright
+
+To execute Playwright tests, before you must run the installation of browsers.
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+npx playwright install
 ```
-
-Locally preview production build:
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+yarn test
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## 📙 Deployment
+
+For the **Production** site, you want to setup this environment variables:
+
+```toml
+GRAPHCDN_ENDPOINT=''
+CYPRESS_ENVIRONMENT='production_site'
+USE_STATIC_SITE_GENERATION=true
+```
+
+In the case of **Preview**:
+
+```toml
+GRAPHCDN_ENDPOINT=''
+IS_PREVIEW_SITE=true
+USE_STATIC_SITE_GENERATION=false
+```
+
+In both cases, you need to add the ones specified in the `cypress.env.json` file and prefix them with "**CYPRESS\_**" (e. g., `CYPRESS_TESTING_ADMIN__USER`)

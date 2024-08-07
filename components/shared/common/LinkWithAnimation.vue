@@ -2,6 +2,7 @@
   <component
     :is="typeComponent"
     v-bind="getProps"
+    data-testid="link-with-animation"
     :class="[$attrs.class]"
     class="button button-arrow text-s-900 hover:text-s-700 flex items-center hover:underline"
     @click="$emit('click')"

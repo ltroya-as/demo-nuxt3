@@ -1,0 +1,138 @@
+.tippy-box {
+  background-color: transparent !important;
+  border-radius: 0px !important;
+  .tippy-content {
+    padding: 0;
+  }
+
+  .tippy-arrow {
+    color: #222;
+  }
+}
+
+.ticker-tooltip {
+  background: white;
+  border-radius: 12px;
+  min-width: 430px;
+  box-shadow: 0px 4px 10px 0px #0000000d;
+
+  .tooltip-header-link {
+    background-color: #222222;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 24px 13px 24px;
+    border-bottom: 2px solid #fdbd00;
+    border-radius: 12px 12px 0px 0px;
+    cursor: pointer;
+
+    .tooltip-title {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 26px;
+    }
+  }
+
+  .tooltip-header-link:hover > .tooltip-title {
+    text-decoration: underline;
+  }
+
+  .tooltip-content-container {
+    background: white;
+    padding: 12px 24px;
+    min-height: 175px;
+    border-radius: 0 0 12px 12px;
+    color: black;
+    display: flex;
+    transition: opacity 0.3s ease-in-out;
+
+    .tooltip-left-container {
+      display: flex;
+      flex-direction: column;
+      padding-right: 28px;
+
+      .tooltip-left-title {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .tooltip-left-index-value {
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .tooltip-left-chart-label {
+        font-size: 12px;
+      }
+    }
+
+    .tooltip-right-container {
+      display: flex;
+      flex-grow: 1;
+      padding-left: 26px;
+      padding-top: 16px;
+      border-left: 2px solid #fdbd00;
+    }
+
+    .tooltip-right-data-container {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 20px;
+
+      .tooltip-right-row {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        div {
+          display: flex;
+          justify-content: space-between;
+          font-size: 14px;
+          font-weight: 600;
+        }
+      }
+
+      .tooltip-right-row-value {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+
+    .tooltip-contact-us-container {
+      display: flex;
+      font-size: 14px;
+      font-weight: 600;
+      gap: 8px;
+      height: 24px;
+      align-items: center;
+      cursor: pointer;
+
+      span {
+        display: flex;
+        gap: 4px;
+
+        svg {
+          rotate: 90deg;
+          color: #fdaf00;
+        }
+      }
+    }
+  }
+}
+
+.password-tooltip {
+  background: white;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  padding: 8px 12px 24px 12px;
+  color: black;
+}
+
+.table-tooltip {
+  background: black;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  padding: 8px 12px 24px 12px;
+  color: white;
+}

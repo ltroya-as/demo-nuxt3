@@ -14,6 +14,16 @@ export default defineNuxtConfig({
   typescript: {
     strict: false
   },
+  css: [
+    '~/assets/main.scss',
+    '~/assets/lightbox.scss',
+    '~/assets/multiselect.scss',
+    '~/assets/date-picker.scss',
+    '~/assets/tippy.scss',
+    '~/assets/mapbox.scss',
+    'tippy.js/dist/tippy.css',
+    'v-calendar/style.css',
+  ],
   runtimeConfig: {
     public: {
       graphqlEndpoint: GRAPHQL_ENDPOINT,
@@ -45,5 +55,10 @@ export default defineNuxtConfig({
   modules: ['nuxt-graphql-request', 'nuxt-svgo'],
   build: {
     transpile: ['nuxt-graphql-request'],
+  },
+  vite: {
+    define: {
+      global: 'window',
+    },
   },
 })

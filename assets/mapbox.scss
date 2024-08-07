@@ -1,0 +1,27 @@
+.mapboxgl-popup {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+
+  .mapboxgl-popup-tip {
+    border-color: transparent;
+  }
+
+  .mapboxgl-popup-content {
+    background: #333a45;
+    border-radius: 12px;
+
+    .popup-title {
+      font-size: 16px;
+    }
+
+    .popup-content {
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+
+      .popup-region {
+        margin-bottom: 12px;
+      }
+    }
+  }
+}

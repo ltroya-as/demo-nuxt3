@@ -186,11 +186,11 @@ export default {
 
   async mounted() {
     try {
-      // const { data } = await this.$bmAuth.getPublicGraphqlClient().query({
-      //   query: latestAnnouncement,
-      // })
-      //
-      // this.handleAnnouncementData(data)
+      const { data } = await this.$bmAuth.getPublicGraphqlClient().query({
+        query: latestAnnouncement,
+      })
+
+      this.handleAnnouncementData(data)
     } catch (error) {
       logError(error)
     } finally {
@@ -265,7 +265,7 @@ export default {
         if (hasValidTitle) {
           this.hasAnnouncement = true
           this.announcementText = `${announcement.title}`
-          // this.announcementSlug = announcement.slug
+          this.announcementSlug = announcement.slug
         } else {
           this.adjustMainHeroHeight()
         }

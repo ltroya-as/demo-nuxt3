@@ -1,0 +1,130 @@
+.multiselect__input:focus {
+  box-shadow: none;
+}
+.multiselect__tags {
+  padding-bottom: 3px !important;
+}
+
+.market-assessments-select-wrapper {
+  .multiselect__input {
+    @apply static mb-3 w-full pl-1 #{!important};
+  }
+  .multiselect__tags {
+    display: flex !important;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    padding-bottom: 3px !important;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  }
+  .multiselect__content-wrapper {
+    top: 43px;
+    max-height: 245px !important;
+  }
+
+  @media (min-width: 1280px) {
+    .multiselect--active .multiselect__content-wrapper {
+      position: relative;
+    }
+    .multiselect__content-wrapper {
+      top: 0;
+      position: absolute;
+      transition: none;
+      max-height: 203px !important;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    .multiselect__content-wrapper {
+      max-height: 211px !important;
+    }
+  }
+
+  .multiselect__option--highlight {
+    @apply bg-white #{!important};
+  }
+  .multiselect__option {
+    @apply border-outline font-lato text-surface-em-high hover:bg-p-50 mx-3 my-1 rounded-lg border px-5 font-normal #{!important};
+  }
+  .multiselect__option--selected {
+    @apply bg-p-100 font-lato text-surface-em-high mx-3 my-1 rounded-lg px-5 font-normal #{!important};
+  }
+}
+
+.presentations-filter-select-wrapper {
+  .multiselect__single {
+    font-size: 14px;
+  }
+
+  .multiselect__placeholder {
+    margin-bottom: 5px;
+  }
+
+  .multiselect__option--selected {
+    @apply bg-p-400 text-s-900;
+  }
+
+  .multiselect__option--highlight {
+    @apply bg-s-200 text-s-900;
+  }
+
+  .multiselect__option--selected.multiselect__option--highlight {
+    @apply bg-p-100 text-s-900;
+  }
+
+  .multiselect__spinner::after,
+  .multiselect__spinner::before {
+    border-top-color: #fdbd00;
+  }
+}
+
+.price-assessments-articles {
+  .multiselect {
+    max-width: 48px;
+  }
+  .multiselect__option,
+  .multiselect__input.focus-visible,
+  .multiselect__option--highlight {
+    @apply bg-white text-base text-black #{!important};
+
+    &:hover {
+      @apply bg-p-400 #{!important};
+    }
+  }
+  .multiselect__option--selected {
+    @apply bg-p-100 font-normal text-black #{!important};
+  }
+  .multiselect__single {
+    position: relative;
+    top: 2px;
+  }
+  .multiselect__single,
+  .multiselect__tags {
+    @apply bg-p-400;
+  }
+  .multiselect--active .multiselect__single,
+  .multiselect--active .multiselect__tags {
+    @apply bg-black;
+  }
+  .multiselect__tags,
+  .multiselect--active:not(.multiselect--above) .multiselect__tags {
+    border-radius: 0;
+    border: 0;
+    // border-right: 1px solid #e8e8e8;
+    border-top-left-radius: 20%;
+    border-bottom-left-radius: 20%;
+    padding-right: 10px;
+  }
+  .multiselect--active .multiselect__tags,
+  .multiselect--active:not(.multiselect--above) .multiselect__tags {
+    border-bottom-left-radius: 0;
+  }
+  .multiselect__content-wrapper {
+    top: 43px;
+    max-height: 245px !important;
+    width: 200px;
+    @apply shadow-dp-02;
+  }
+  .multiselect__placeholder {
+    display: none;
+  }
+}

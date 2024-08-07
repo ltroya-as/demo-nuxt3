@@ -1,0 +1,3 @@
+query hasActiveMembershipFor($category: String) {
+  hasActiveMembershipFor(category: $category)
+}

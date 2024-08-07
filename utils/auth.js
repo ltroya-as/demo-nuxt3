@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch'
-import jwtDecode from 'jwt-decode'
+import {jwtDecode} from 'jwt-decode'
 import { v4 as uuidv4 } from 'uuid'
 import {
   JWT_ACCESS_TOKEN,

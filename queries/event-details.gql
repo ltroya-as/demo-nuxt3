@@ -1,0 +1,49 @@
+query getEventDetail($slug: ID!) {
+  event(id: $slug, idType: SLUG) {
+    date
+    title
+    events {
+      backgroundImage {
+        node {
+          sourceUrl
+        }
+      }
+      blurb
+      eventWorldTour
+      startDateTime
+      endDateTime
+      eventType
+      location
+      timeZone
+      title
+      formId
+      url
+      webinars {
+        title: webinarTitle
+        blurb: webinarBlurb
+        startDateTime: webinarStartDateTime
+        endDateTime: webinarEndDateTime
+        url: webinarUrl
+        isMembersOnly: webinarIsMembersOnly
+        timeZone: webinarTimeZone
+        sessions: webinarSessions {
+          speakers: sessionSpeakers {
+            name: speakerName
+            company: speakerCompany
+            position: speakerPosition
+          }
+        }
+        sponsors: webinarSponsors {
+          name: sponsorName
+          websiteUrl: sponsorWebsiteUrl
+          imageUrl: sponsorImageUrl {
+            node {
+              altText
+              sourceUrl
+            }
+          }
+        }
+      }
+    }
+  }
+}

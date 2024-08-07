@@ -1,0 +1,20 @@
+query getBlogArchiveArticles($first: Int, $after: String) {
+  blogArchives(first: $first, after: $after) {
+    nodes {
+      id
+      title
+      date
+      slug
+      excerpt
+      featuredImage {
+        node {
+          mediaItemUrl
+        }
+      }
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}
