@@ -40,6 +40,7 @@
     "jwt-decode": "^4.0.0",
     "lodash": "^4.17.21",
     "luxon": "^3.5.0",
+    "modern-screenshot": "^4.4.39",
     "nuxt": "^3.12.3",
     "nuxt-graphql-request": "^8.1.0",
     "nuxt-svgo": "^4.0.2",
